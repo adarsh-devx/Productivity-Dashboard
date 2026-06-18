@@ -4,6 +4,8 @@
   --tri1: #89d7b7;
   --tri2: #428475;
   --tri3: #9fa1ff;
+  --green: rgb(9, 138, 89);
+  --blue: rgb(0, 191, 255);
 }
 
 @font-face {
@@ -11,11 +13,13 @@
   src: url(./AeonikTRIAL-Light.otf);
   font-weight: 200;
 }
+
 @font-face {
   font-family: aeonic;
   src: url(./AeonikTRIAL-Regular.otf);
   font-weight: 500;
 }
+
 @font-face {
   font-family: aeonic;
   src: url(./AeonikTRIAL-Bold.otf);
@@ -54,12 +58,22 @@ section.allElems {
   height: 100%;
   width: 100%;
   padding: 40px;
-  padding-top: 80px;
+  position: absolute;
+}
+
+.allElems header{
+  height: 400px;
+  width: 100%;
+  background-color: var(--tri2);
+  margin-bottom: 30px;
+  border-radius: 20px;
+}
+
+.allElems .allFeatures{
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 40px;
-  position: absolute;
 }
 
 .elem {
@@ -106,17 +120,32 @@ section.allElems {
 .back {
   position: absolute;
   right: 5%;
-  background-color: var(--tri3);
-  border-radius: 10px;
-  padding: 10px 15px;
-  font-size: 25px;
+  top: 40px;
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 18px;
   font-weight: 500;
-  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
   transition: all ease 0.2s;
+  z-index: 99;
 }
+
+.back:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
 .back:active {
-  scale: 0.97;
+  scale: 0.95;
+  transform: translateY(0);
 }
 
 /* .todo-list-fullpage{
@@ -125,6 +154,7 @@ display: block;
 .todo-list-fullpage h2 {
   font-size: 65px;
 }
+
 .todo-list-fullpage .todo-container {
   height: 80%;
   width: 100%;
@@ -147,6 +177,7 @@ display: block;
   align-items: flex-start;
   padding: 30px;
 }
+
 .todo-container .addTask form input#task-input {
   padding: 15px 25px;
   width: 100%;
@@ -157,6 +188,7 @@ display: block;
   outline: none;
   margin-bottom: 20px;
 }
+
 .todo-container .addTask form textarea {
   padding: 15px 25px;
   width: 100%;
@@ -169,6 +201,7 @@ display: block;
   resize: none;
   min-height: 350px;
 }
+
 .todo-container .addTask form button {
   padding: 15px 25px;
   width: 100%;
@@ -182,6 +215,7 @@ display: block;
   font-weight: 700;
   transition: all ease 0.3s;
 }
+
 .todo-container .addTask form button:active {
   transform: scale(0.97);
 }
@@ -198,6 +232,7 @@ display: block;
   overflow: auto;
   /* gap: 20px; */
 }
+
 .task {
   width: 100%;
   padding: 20px;
@@ -218,6 +253,7 @@ display: block;
   gap: 10px;
   /* font-weight: 500; */
 }
+
 .task h5 span {
   background-color: red;
   padding: 4px 8px;
@@ -225,9 +261,11 @@ display: block;
   color: var(--pri);
   font-size: 10px;
 }
+
 .task h5 span.true {
   opacity: 1;
 }
+
 .task h5 span.false {
   opacity: 0;
 }
@@ -257,16 +295,18 @@ display: block;
   padding: 10px 10px;
   gap: 15px;
 }
+
 .mark-imp input {
   scale: 1.5;
 }
+
 .mark-imp label {
   font-size: 20px;
 }
 
-.daily-planner-fullpage {
+/* .daily-planner-fullpage {
   display: block;
-}
+} */
 
 .daily-planner-fullpage h2 {
   font-size: 65px;
@@ -293,11 +333,13 @@ display: block;
   width: 49%;
   margin-bottom: 15px;
 }
+
 .day-planner .day-planner-time p {
   position: absolute;
   top: 12%;
   left: 2%;
-  font-size: 18px;
+  font-size: 16px;
+  color: var(--tri1);
 }
 
 .day-planner .day-planner-time input {
@@ -307,6 +349,159 @@ display: block;
   border-radius: 5px;
   border: none;
   outline: none;
-  font-size: 32px;
+  font-size: 35px;
   padding-top: 34px;
+}
+
+.motivation-fullpage {
+  position: relative;
+}
+
+.motivation-fullpage .motivation-container {
+  height: 480px;
+  width: 650px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+}
+
+.motivation-fullpage .motivation-container::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--tri1);
+  border-radius: 30px;
+  scale: 1.05;
+  filter: blur(100px);
+  z-index: 1;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.motivation-container .motivation-wrapper {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: relative;
+  border-radius: 30px;
+  background: rgba(26, 49, 44, 0.85);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(137, 215, 183, 0.25);
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.motivation-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.motivation-header .quote-icon {
+  font-size: 38px;
+  color: var(--tri1);
+  line-height: 1;
+}
+
+.motivation-header .quote-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--tri1);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.motivation-body {
+  margin: 30px 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.motivation-body .quote-text {
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--pri);
+  letter-spacing: -0.5px;
+}
+
+.motivation-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.motivation-footer .author-name {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--tri1);
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+}
+
+.pomodoro-fullpage {
+  /* display: block; */
+  position: relative;
+}
+
+.pomodoro-fullpage h2 {
+  font-size: 50px;
+}
+
+.pomodoro-fullpage .pomo-timer {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.pomo-timer h1 {
+  font-size: 165px;
+}
+
+.pomo-timer button {
+  padding: 12px 30px;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 20px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--tri2);
+  box-shadow: 6px 6px 0px black;
+  transition: all ease 0.1s;
+}
+
+.pomo-timer button:active {
+  box-shadow: 0px 0px 0px black;
+  transform: translate(5px, 5px);
+}
+
+.pomodoro-fullpage .session {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: 10px 25px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all ease 0.3s;
 }
